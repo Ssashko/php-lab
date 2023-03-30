@@ -1,0 +1,8 @@
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^\/styles/(.*).css
+RewriteCond %{REQUEST_URI} !^\/image(.*).png
+RewriteCond %{REQUEST_URI} !^\/image(.*).jpg
+RewriteCond %{REQUEST_URI} !^\/image(.*).php
+RewriteCond %{REQUEST_URI} !^\/image(.*).ico
+RewriteCond %{REQUEST_URI} !^\/scripts/(.*).js
+RewriteRule .* index.php [L]
