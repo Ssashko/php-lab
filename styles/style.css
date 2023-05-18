@@ -87,8 +87,9 @@ footer {
     font-size: 16px;
 }
 
-button {
+button, input[type="submit"] {
     color: antiquewhite;
+    
     font-size: 14px;
     min-width: 80px;
     border: 1px solid #361a92;
@@ -98,10 +99,95 @@ button {
     min-height: 30px;
     padding: 5px;
     margin: 5px;
+    box-sizing: border-box;
 }
-button:hover {
-    margin: 3px;
-    border: 0;
+button > a {
+    text-decoration: none;
+    color: antiquewhite;
+}
+button:hover, input[type="submit"]:hover {
     background-color: #241476;
     cursor: pointer;
+}
+
+.modalWrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modalWindow {
+    border-radius: 20px;
+    background-color: #361a92;
+    width: 300px;
+    height: 300px;
+    box-shadow: 5px 5px 5px black;
+
+}
+.modalWindowExtended {
+    border-radius: 20px;
+    background-color: #361a92;
+    padding: 20px;
+    box-shadow: 5px 5px 5px black;
+
+}
+.modalWindowExtended > *, .modalWindowExtended > form {
+    margin-bottom: 20px;
+}
+#win-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.closeModal {
+    float: right;
+    margin: 20px;
+    color: azure;
+    font-size: 30px;
+    cursor: pointer;
+    
+}
+.modalTitle {
+    text-align: center;
+    color: antiquewhite;
+}
+.modalText {
+    margin: 20px;
+}
+
+.user-info {
+    align-self: center;
+}
+.user-info span {
+    color: red;
+    font-weight: bold;
+}
+
+.displayNone {
+    display: none !important;
+}
+
+.modalWrapperWindow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading {
+    text-align: center;
+}
+.loading > img {
+    max-width: 50%;
 }

@@ -1,9 +1,4 @@
-<?php 
-$title = "Домашня сторінка";
-$style = "home";
-require_once("layout/header.php"); 
-require_once("layout/leftbar.php"); 
-?>
+
 <main>
     <h1 class="main-title">Головна</h1>
     <img class="main-img" src="/image/main.jpg">
@@ -23,4 +18,3 @@ require_once("layout/leftbar.php");
     
 
 </main>
-<?php require_once("layout/footer.php");

@@ -1,0 +1,12 @@
+.main-img {
+    max-width: 75%;
+    min-width: 100px;
+    margin: 20px;
+}
+.main-text {
+    margin: 10px;
+}
+.main-title {
+    text-align: center;
+    margin: 30px;
+}

@@ -1,0 +1,30 @@
+.article-image-wrapper {
+    width: 100%;
+    text-align: center;
+    background-color:antiquewhite;
+    padding: 10px 0px;
+    border-bottom: 5px solid black;
+}
+.article-image-wrapper  > img{
+    max-width: 90%;
+    max-height: 300px;
+    
+}
+
+.article-wrapper-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+    border-bottom: 5px solid black;
+}
+.article-id {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 10px;
+    font-weight: bolder;
+    color: brown;
+    border-bottom: 5px solid black;
+}
+.article-text {
+    padding: 10px;
+}
