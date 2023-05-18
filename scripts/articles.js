@@ -1,12 +1,9 @@
+
 let modalWindow = new ModalWindow(0, document.getElementById("win-container"));
 
 document.querySelector("#addArticleWindow > .closeModal").addEventListener("click", function(){
     let window = document.getElementById("addArticleWindow").parentElement;
     hideBlock(window);
-});
-document.querySelector(".article-add-button").addEventListener("click", function(){
-    let window = document.getElementById("addArticleWindow").parentElement;
-    showBlock(window);
 });
 let container = document.querySelector(".article-container");
 let article = new Article(container);
@@ -38,5 +35,10 @@ document.querySelector(".article-container").addEventListener("click",async func
     await article.deleteArticle(id);
     article.loadArticles();
 });
-
-
+try{
+document.querySelector(".article-add-button").addEventListener("click", function(){
+    let window = document.getElementById("addArticleWindow").parentElement;
+    showBlock(window);
+});
+}
+catch(e){};

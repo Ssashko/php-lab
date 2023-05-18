@@ -57,9 +57,9 @@ class FileAccessor {
         await fetch('/action_allfiles'+param)
         .then((responce) => responce.json())
         .then(responce => {
-            this.container.innerHTML = "";
+            let res = "";
             responce.data.forEach(element => {
-                this.container.innerHTML += '<div class="file-entry" data-id="' + element.id + '">\
+                res += '<div class="file-entry" data-id="' + element.id + '">\
                 <div class="file-entry-wrapper">\
                 <img class="file-entry-image" src="/image/files/'+ element.image.toLowerCase() +'">\
                 </div>\
@@ -79,8 +79,7 @@ class FileAccessor {
             </div>\
                 ';
             });
-            if(this.container.innerHTML == "")
-            this.container.innerHTML = "Немає файлів";
+            this.container.innerHTML = (res == "" ? "Немає файлів" : res);
                 
         }) 
         .catch(error => {
@@ -97,7 +96,6 @@ class FileAccessor {
             let updateFileWindow = document.getElementById("updateFileWindow");
             document.getElementById("update-file-id").value = id;
             showBlock(updateFileWindow.parentElement);
-            //this.update();
         });
         this.container.addEventListener("click", (e) => {
             let target = e.target.closest(".file-entry-editor-get");
@@ -132,9 +130,9 @@ class FileAccessor {
         container.querySelector(".closeModal")
     }
 
-    deleteFile(id)
+    async deleteFile(id)
     {
-        fetch('/action_files?id_file=' + id, {
+        await fetch('/action_files?id_file=' + id, {
             method: 'DELETE',
           })
         .then((responce) => responce.json())
@@ -145,14 +143,14 @@ class FileAccessor {
             console.log(error);
         });
     }
-    updateFile(id, name, text)
+    async updateFile(id, name, text)
     {
         const form = new FormData();
         form.append('id', id);
 	    form.append('name', name.value);
         form.append('text', text.value);
         console.log(name);
-        fetch('/action_files', {
+        await fetch('/action_files', {
             method: 'PUT',
             body: new URLSearchParams(form)
           })

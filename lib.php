@@ -38,6 +38,11 @@ function authorized_forbitten()
         header("location: /p404");
 }
 
+function hasAdminRight()
+{
+    return isset($_SESSION["admin"]) && $_SESSION["admin"];
+}
+
 require_once("lib/auth.php");
 require_once("lib/file.php");
 require_once("lib/article.php");

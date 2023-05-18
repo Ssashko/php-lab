@@ -17,7 +17,10 @@
     </div>
     <div class="article-controller">
         <h1>Список статей</h1>
-        <button class="article-add-button">Додати</button>
+        <?php
+            if(hasAdminRight())
+                include("layout/button_article.php");
+        ?>
     </div>
     <div class="article-container">
     </div>
