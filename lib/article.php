@@ -4,8 +4,12 @@ class ArticleManager
 {
     private $connection;
     private $stmt;
-    public function __construct()
+    private $user_info;
+    public function __construct($auth = false, $id = null, $admin = null)
     {
+        $this->user_info["auth"] = $auth;
+        $this->user_info["id"] = $id;
+        $this->user_info["admin"] = $admin;
         $this->connection = new mysqli(DB_HOST, DB_LOGIN, DB_PASS, DB_NAME);
         $this->stmt = [
             "getAllArticle" => $this->connection->prepare(
@@ -34,13 +38,13 @@ class ArticleManager
             $article = $query_result->fetch_assoc();
             if(!$article)
                 break;
-            $article["admin"] = $this->isReadOnly();
+            $article["admin"] = !$this->isReadOnly();
             array_push($data, $article);
         };
         return $data;
     }
     public function isReadOnly() {
-        return isset($_SESSION["admin"]) && $_SESSION["admin"];
+        return !(isset($this->user_info["admin"]) && $this->user_info["admin"]);
     }
     public function getSpecificArticle($data) {
         $this->stmt["getSpecificArticle"]->bind_param("s", $data["id"]);
@@ -48,18 +52,13 @@ class ArticleManager
         $query_result = $this->stmt["getSpecificArticle"]->get_result();
         return $query_result->fetch_assoc();
     }
-    public function addSpecificArticle($data) {
-        
-        $title = $data["title"];
-        $text = $data["text"];
-        $image = $data["image"];
+    public function addSpecificArticle($title, $text, $image) {
         $date = date('Y-m-d');
         $this->stmt["addSpecificArticle"]->bind_param("ssss", $title, $text, $image, $date);
         $this->stmt["addSpecificArticle"]->execute();
     }
 
-    public function deleteSpecificArticle($data) {
-        $id_file = $data["id"];
+    public function deleteSpecificArticle($id_file) {
         $this->stmt["deleteSpecificArticle"]->bind_param("s", $id_file);
         $this->stmt["deleteSpecificArticle"]->execute();
     }

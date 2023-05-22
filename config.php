@@ -47,8 +47,8 @@ $config = [
 ];
 
 define("DB_HOST", "localhost");
-define("DB_LOGIN", "user");
-define("DB_PASS", "user");
+define("DB_LOGIN", "admin");
+define("DB_PASS", "Qazxsw21!");
 define("DB_NAME", "fileplus");
 
 ?>

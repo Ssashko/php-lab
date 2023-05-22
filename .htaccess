@@ -2,6 +2,8 @@ RewriteEngine on
 RewriteCond %{REQUEST_URI} !^\/styles/(.*).css
 RewriteCond %{REQUEST_URI} !^\/image(.*).png
 RewriteCond %{REQUEST_URI} !^\/image(.*).jpg
+RewriteCond %{REQUEST_URI} !^\/image(.*).PNG
+RewriteCond %{REQUEST_URI} !^\/image(.*).JPG
 RewriteCond %{REQUEST_URI} !^\/image(.*).php
 RewriteCond %{REQUEST_URI} !^\/image(.*).ico
 RewriteCond %{REQUEST_URI} !^\/image(.*).gif

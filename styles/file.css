@@ -21,7 +21,7 @@
 }
 
 .file-entry-image {
-    max-width: 100px;
+    max-width: 80px;
     max-height: 100px;
 }
 
@@ -47,7 +47,11 @@
 }
 .file-entry-wrapper {
     width: 100px;
+    padding: 10px;
     text-align: center;
     background-color: bisque;
     border: 1px solid black;
+}
+.modalWindowExtended {
+    max-width: 75%;
 }

@@ -61,7 +61,7 @@ class FileAccessor {
             responce.data.forEach(element => {
                 res += '<div class="file-entry" data-id="' + element.id + '">\
                 <div class="file-entry-wrapper">\
-                <img class="file-entry-image" src="/image/files/'+ element.image.toLowerCase() +'">\
+                <img class="file-entry-image" src="/image/files/'+ element.image +'">\
                 </div>\
                 <h1 class="file-entry-title">'+ element.name +'</h1>\
                 <a class="file-entry-resource" href="/action_getfile?id_file=' + element.id + '">Завантажити</a>\
@@ -122,7 +122,7 @@ class FileAccessor {
             console.log(error);
         });
         showBlock(container);
-        container.querySelector(".file-image").src = "/image/files/" + data.image.toLowerCase();
+        container.querySelector(".file-image").src = "/image/files/" + data.image;
         container.querySelector(".file-title").innerHTML = data.name;
         container.querySelector(".file-text").innerHTML = data.text;
         container.querySelector(".file-resource").href = "/action_getfile?id_file=" + data.id;
@@ -211,7 +211,7 @@ class Article
         return `\
         <article>\
             <div class="article-image-wrapper">\
-                <img src="image/articles/${image.toLowerCase()}" alt="">\
+                <img src="image/articles/${image}" alt="">\
             </div>\
             <div class="article-control">\
                 <h1 class="article-title">${title}</h1>\

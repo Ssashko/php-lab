@@ -1,8 +1,9 @@
 <?php
 
-$file_accessor = new FileAccessor();
+$file_accessor = isset($_SESSION["auth"]) ? new FileAccessor($_SESSION["auth"], $_SESSION["id"], $_SESSION["admin"]) : new FileAccessor();
 
-$info = $file_accessor->getFile($_GET);
+$id = validate_text($_GET["id_file"]);
+$info = $file_accessor->getFile($id);
 $file = "files"."/".$info["path"];
 
 if (file_exists($file)) {

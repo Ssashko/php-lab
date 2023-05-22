@@ -46,4 +46,5 @@ function hasAdminRight()
 require_once("lib/auth.php");
 require_once("lib/file.php");
 require_once("lib/article.php");
+require_once("lib/validator.php");
 ?>
